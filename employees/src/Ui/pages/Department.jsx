@@ -34,7 +34,7 @@ export default function Department() {
       </section>
       {add && (
               <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
-                <Add HideAdd={HideAdd} />
+                <Add HideAdd={HideAdd} setAdd={setAdd} />
               </div>
             )}
     </main>

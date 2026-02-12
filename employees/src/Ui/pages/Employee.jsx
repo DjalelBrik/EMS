@@ -31,7 +31,7 @@ export default function EmployeePage() {
 
       {add && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
-          <Add HideAdd={HideAdd} />
+          <Add add={add} setAdd={setAdd} HideAdd={HideAdd}/>
         </div>
       )}
     </main>

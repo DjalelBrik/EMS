@@ -1,4 +1,5 @@
 import{LayoutDashboard,DollarSign, Users, Building2, Settings, StickyNoteIcon } from "lucide-react"
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <>
@@ -20,26 +21,26 @@ export default function Navbar() {
         </div>
 
         <div className="mb-6 flex flex-col gap-1 text-[15px] font-medium">
-          <a className="group flex items-center gap-3 rounded-lg bg-white px-3 py-2 text-slate-900 shadow-sm ring-1 ring-slate-200" href="#">
+          <Link to="/" className="group flex items-center gap-3 rounded-lg bg-white px-3 py-2 text-slate-900 shadow-sm ring-1 ring-slate-200" href="#">
             <span className="h-2 w-2 rounded-full bg-slate-900" />
             <LayoutDashboard />
             Dashboard
-          </a>
-          <a className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
+          </Link>
+          <Link to="/employee" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
             <Users/>
             Employees
-          </a>
-          <a className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
+          </Link>
+          <Link to="/department" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
             <Building2/>
             Department
-          </a>
-          <a className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
+          </Link>
+          <Link to="/payroll" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
             <DollarSign/>
             Payroll
-          </a>
+          </Link>
           <a className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
              <StickyNoteIcon/>
