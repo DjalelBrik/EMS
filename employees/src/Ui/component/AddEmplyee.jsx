@@ -15,8 +15,23 @@ const depname=useRef("");
 
   function HandleSubmit(e){
         e.preventDefault(); 
+if (
+  name.current.value.trim() === "" ||
+  email.current.value.trim() === "" ||
+  phone.current.value.trim() === "" ||
+  address.current.value.trim() === "" ||
+  job.current.value.trim() === "" ||
+  depname.current.value.trim() === "" ||
+  salary.current.value.trim() === "" ||
+  joindate.current.value.trim() === "" ||
+  manager.current.value.trim() === ""
+) {
+  alert("Fields are empty");
+  return;
+}
 
     const Employee={
+      id : Date.now(),
      name:name.current.value,
       email: email.current.value,
       phone: phone.current.value,
@@ -30,6 +45,7 @@ const depname=useRef("");
  setemployee((prev)=>[...prev,Employee]);
  setAdd(false);
 }
+
   return (
     <div className="mx-auto max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-cyan-200/70 bg-white p-6 shadow-lg">
       <h2 className="mb-1 text-2xl font-semibold text-slate-900">Add Employee</h2>

@@ -8,7 +8,9 @@ export default function Add({setAdd,HideAdd}) {
    const annual=useRef(0);
    function Handleclick(e){
     e.preventDefault();
+    if(depname.current.value.trim()===""||headcount.current.value.trim()===""||annual.current.value.trim()===""){alert("Fields is empty"); return;}
     const Department={
+      id:Date.now(),
       depname:depname.current.value,
       headcount: Number(headcount.current.value),
       annual: Number(annual.current.value),
