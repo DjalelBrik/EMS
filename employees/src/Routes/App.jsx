@@ -4,6 +4,7 @@ import Employee from "../Ui/pages/Employee";
 import Payroll from "../Ui/pages/Payroll";
 import Department from "../Ui/pages/Department";
 import Layout from "./layout";
+import Leave from "../Ui/pages/LeaveRequest"
 
 
 export default function App() {
@@ -14,8 +15,7 @@ export default function App() {
         <Route path="/employee" element={<Employee />} />
         <Route path="/payroll" element={<Payroll />} />
         <Route path="/department" element={<Department />} />
-        
-
+        <Route path="/leave" element={<Leave />} />
       </Route>
     </Routes>
   );

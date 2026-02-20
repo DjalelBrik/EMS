@@ -21,31 +21,31 @@ export default function Navbar() {
         </div>
 
         <div className="mb-6 flex flex-col gap-1 text-[15px] font-medium">
-          <Link to="/" className="group flex items-center gap-3 rounded-lg bg-white px-3 py-2 text-slate-900 shadow-sm ring-1 ring-slate-200" href="#">
+          <Link to="/" className="group flex items-center gap-3 rounded-lg bg-white px-3 py-2 text-slate-900 shadow-sm ring-1 ring-slate-200" >
             <span className="h-2 w-2 rounded-full bg-slate-900" />
             <LayoutDashboard />
             Dashboard
           </Link>
-          <Link to="/employee" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
+          <Link to="/employee" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" >
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
             <Users/>
             Employees
           </Link>
-          <Link to="/department" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
+          <Link to="/department" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" >
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
             <Building2/>
             Department
           </Link>
-          <Link to="/payroll" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
+          <Link to="/payroll" className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" >
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
             <DollarSign/>
             Payroll
           </Link>
-          <a className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
+          <Link className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" to="/leave">
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
              <StickyNoteIcon/>
             Leave Request
-          </a>
+          </Link>
           <a className="group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-white hover:text-slate-900 hover:shadow-sm" href="#">
             <span className="h-2 w-2 rounded-full bg-slate-300 group-hover:bg-slate-900" />
            <Settings/>
