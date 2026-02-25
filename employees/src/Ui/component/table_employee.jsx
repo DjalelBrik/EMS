@@ -10,10 +10,21 @@ const {department,setdep}=useContext(DepartmentContext);
 const [empl,setempl]=useState(null);
 const [modify,setModify]=useState(false);
 const [show,setshow]=useState(false);
+const [search,setsearch]=useState("");
+const filteredEmployees = employee.filter((emp) => {
+  const value = search.trim().toLowerCase();
+ return (
+    emp.name.toLowerCase().includes(value) ||
+    emp.email.toLowerCase().includes(value) ||
+    emp.jobTitle.toLowerCase().includes(value) ||
+    emp.depname.toLowerCase().includes(value) ||
+    emp.salary.toString().includes(value)
+  );
+});
 function Delete(id) {
   const deletedEmp = employee.find((e) => e.id === id);
   if (!deletedEmp) return;
-
+  
   const deletedDep = deletedEmp.depname.trim().toLowerCase();
 
   setemployee((prev) => prev.filter((e) => e.id !== id));
@@ -25,6 +36,13 @@ function Delete(id) {
         : dep
     )
   );
+  setdep((prev) =>
+      prev.map((dep) =>
+        dep.depname.trim().toLowerCase() === deletedDep
+          ? { ...dep, annual: Number(dep.annual || 0)-Number(deletedEmp.salary) }
+          : dep
+      )
+    );
 }
 
 function Modify(emp){
@@ -46,6 +64,8 @@ function Show(emp){
             <h1 className="mt-1 text-3xl font-semibold text-slate-900">Employee Directory</h1>
           </div>
           <input
+            value={search}
+            onChange={(e) => setsearch(e.target.value)}
             type="text"
             placeholder="Search by name, email, department..."
             className="w-full rounded-xl border border-cyan-200 bg-cyan-50/50 px-4 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-300/50 md:w-96"
@@ -66,7 +86,7 @@ function Show(emp){
               </tr>
             </thead>
             <tbody className="text-sm text-slate-700">
- {employee.map(emp => (
+ {filteredEmployees.map(emp => (
     <tr className="border-t border-slate-200 bg-white transition hover:bg-cyan-50/50" key={emp.id}>
       <td className="px-4 py-3 text-black">{emp.name}</td>
       <td className="px-4 py-3">{emp.email}</td>

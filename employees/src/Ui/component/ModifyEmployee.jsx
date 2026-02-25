@@ -1,8 +1,10 @@
 import { useContext, useEffect,useRef } from "react"
 import { EmployeeContext } from "../../context/EmployeeContext"
+import { DepartmentContext } from "../../context/DepartmentContext";
 
 export default function Modify({empl,setempl,setModify}){
     const {employee,setemployee}=useContext(EmployeeContext);
+    const {setdep}=useContext(DepartmentContext)
     const name=useRef("");
     const email=useRef("");
     const phone=useRef("");
@@ -28,6 +30,7 @@ export default function Modify({empl,setempl,setModify}){
      },[empl])
     function Modify(e) {
      e.preventDefault();
+  const previousemp={...empl};
 
   const updatedEmployee = {
     ...empl,
@@ -47,7 +50,13 @@ export default function Modify({empl,setempl,setModify}){
       emp.id === empl.id ? updatedEmployee : emp
     )
   );
-
+  setdep((prev) =>
+      prev.map((dep) =>
+        dep.depname.trim().toLowerCase() === empl.depname
+          ? { ...dep, annual: Number(dep.annual || 0)-Number(previousemp.salary) + Number(salary.current.value) }
+          : dep
+      )
+    );
   setModify(false);
 }
 
