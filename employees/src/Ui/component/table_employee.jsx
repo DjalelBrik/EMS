@@ -3,14 +3,30 @@ import { useContext,useState } from "react";
 import { EmployeeContext } from "../../context/EmployeeContext";
 import Modifie from "./ModifyEmployee";
 import Shows from "./ShowEmployee";
+import { DepartmentContext } from "../../context/DepartmentContext";
 export default function Employee() {
 const { employee, setemployee } = useContext(EmployeeContext);
+const {department,setdep}=useContext(DepartmentContext);
 const [empl,setempl]=useState(null);
 const [modify,setModify]=useState(false);
 const [show,setshow]=useState(false);
-function Delete(id){
-  setemployee(prev =>prev.filter(emp =>emp.id !==id))
+function Delete(id) {
+  const deletedEmp = employee.find((e) => e.id === id);
+  if (!deletedEmp) return;
+
+  const deletedDep = deletedEmp.depname.trim().toLowerCase();
+
+  setemployee((prev) => prev.filter((e) => e.id !== id));
+
+  setdep((prev) =>
+    prev.map((dep) =>
+      dep.depname.trim().toLowerCase() === deletedDep
+        ? { ...dep, headcount: Math.max(0, Number(dep.headcount || 0) - 1) }
+        : dep
+    )
+  );
 }
+
 function Modify(emp){
  setModify(true);
  setempl(emp);
